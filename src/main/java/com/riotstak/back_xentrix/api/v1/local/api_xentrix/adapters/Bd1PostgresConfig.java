@@ -20,10 +20,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = "com.riotstak.back_xentrix.api.v1.local.api_xentrix.events.adapters.bd1", entityManagerFactoryRef = "postgresEntityManagerFactory", transactionManagerRef = "postgresTransactionManager")
+@EnableJpaRepositories(basePackages = "com.riotstak.back_xentrix.api.v1.local.*", entityManagerFactoryRef = "postgresEntityManagerFactory", transactionManagerRef = "postgresTransactionManager")
 public class Bd1PostgresConfig {
 
-    public String packages_models = "com.riotstak.back_xentrix.api.v1.local.api_xentrix.events.adapters.bd1";
+    public String packages_models = "com.riotstak.back_xentrix.api.v1.local.*.*.adapters.bd1";
 
     @Autowired
     public Environment env;

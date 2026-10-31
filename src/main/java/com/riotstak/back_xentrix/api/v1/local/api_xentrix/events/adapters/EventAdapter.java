@@ -1,19 +1,17 @@
 package com.riotstak.back_xentrix.api.v1.local.api_xentrix.events.adapters;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.riotstak.back_xentrix.api.v1.local.api_xentrix.events.adapters.bd1.Events;
-import com.riotstak.back_xentrix.api.v1.local.api_xentrix.events.adapters.bd1.EventsRepository;
+import com.riotstak.back_xentrix.api.v1.local.api_xentrix.events.adapters.bd1.Event;
+import com.riotstak.back_xentrix.api.v1.local.api_xentrix.events.adapters.bd1.EventRepository;
 import com.riotstak.back_xentrix.api.v1.local.utils.ErrorService;
 
 @Service
-public class EventsAdapter {
+public class EventAdapter {
 
-    private final String myClassName = EventsAdapter.class.getName();
+    private final String myClassName = EventAdapter.class.getName();
 
-    @Autowired
-    EventsRepository eventsRepository;
+    EventRepository eventsRepository;
 
     public Object getAll() {
         try {
@@ -31,7 +29,7 @@ public class EventsAdapter {
         }
     }
 
-    public Object create(Events event) {
+    public Object create(Event event) {
         try {
             return eventsRepository.save(event).getId();
         } catch (Exception e) {

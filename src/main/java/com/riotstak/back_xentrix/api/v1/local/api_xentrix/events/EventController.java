@@ -2,7 +2,6 @@ package com.riotstak.back_xentrix.api.v1.local.api_xentrix.events;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,15 +15,14 @@ import com.riotstak.back_xentrix.api.v1.local.api_xentrix.events.adapters.payloa
 
 @RestController
 @RequestMapping("/local/events")
-public class EventsController {
+public class EventController {
 
-    @Autowired
-    EventsService eventsService;
+    EventService eventsService;
 
-    private final String myClassName = EventsController.class.getName();
+    private final String myClassName = EventController.class.getName();
 
     @GetMapping("/getAll")
-    public ResponseEntity<?> getAll(HttpServletRequest http) {
+    public ResponseEntity<Object> getAll(HttpServletRequest http) {
         try {
             Object x = eventsService.getAll();
             return new ResponseEntity<>(x, HttpStatus.OK);
@@ -34,7 +32,7 @@ public class EventsController {
     }
 
     @GetMapping("/get/{id}")
-    public ResponseEntity<?> getById(@PathVariable Integer id, HttpServletRequest http) {
+    public ResponseEntity<Object> getById(@PathVariable Integer id, HttpServletRequest http) {
         try {
             Object x = eventsService.getById(id);
             return new ResponseEntity<>(x, HttpStatus.OK);
@@ -44,7 +42,7 @@ public class EventsController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<?> create(@RequestBody EventDto payload, HttpServletRequest http) {
+    public ResponseEntity<Object> create(@RequestBody EventDto payload, HttpServletRequest http) {
         try {
             Object x = eventsService.create(payload);
             return new ResponseEntity<>(x, HttpStatus.OK);

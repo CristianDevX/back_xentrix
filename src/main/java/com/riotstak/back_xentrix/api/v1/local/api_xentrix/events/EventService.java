@@ -2,21 +2,19 @@ package com.riotstak.back_xentrix.api.v1.local.api_xentrix.events;
 
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.riotstak.back_xentrix.api.v1.local.api_xentrix.events.adapters.EventsAdapter;
-import com.riotstak.back_xentrix.api.v1.local.api_xentrix.events.adapters.bd1.Events;
+import com.riotstak.back_xentrix.api.v1.local.api_xentrix.events.adapters.EventAdapter;
+import com.riotstak.back_xentrix.api.v1.local.api_xentrix.events.adapters.bd1.Event;
 import com.riotstak.back_xentrix.api.v1.local.api_xentrix.events.adapters.payloads.EventDto;
 import com.riotstak.back_xentrix.api.v1.local.utils.ErrorService;
 
 @Service
-public class EventsService {
+public class EventService {
 
-    private final String myClassName = EventsService.class.getName();
+    private final String myClassName = EventService.class.getName();
 
-    @Autowired
-    EventsAdapter eventsAdapter;
+    EventAdapter eventsAdapter;
 
     public Object getAll() {
         try {
@@ -44,11 +42,12 @@ public class EventsService {
         try {
             if (payload.getName() != null && payload.getType() != null && payload.getCapacity() != null
                     && payload.getLocation() != null) {
-                Events event = new Events();
-                event.setName(payload.getName());
-                event.setType(payload.getType());
-                event.setCapacity(payload.getCapacity());
-                event.setLocation(payload.getLocation());
+                Event event = new Event();
+                // Crear evento
+                // event.setName(payload.getName());
+                // event.setType(payload.getType());
+                // event.setCapacity(payload.getCapacity());
+                // event.setLocation(payload.getLocation());
                 Object id = eventsAdapter.create(event);
                 return "fue creado de forma exitosa el evento con id " + id;
             }
