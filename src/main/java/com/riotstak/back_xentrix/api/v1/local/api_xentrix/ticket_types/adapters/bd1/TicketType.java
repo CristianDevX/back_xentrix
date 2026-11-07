@@ -4,6 +4,8 @@ package com.riotstak.back_xentrix.api.v1.local.api_xentrix.ticket_types.adapters
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+import com.riotstak.back_xentrix.api.v1.local.api_xentrix.events.adapters.bd1.Event;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,8 +15,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import com.riotstak.back_xentrix.api.v1.local.api_xentrix.events.adapters.bd1.Event;
 
 @Entity
 @Table(name = "ticket_types")

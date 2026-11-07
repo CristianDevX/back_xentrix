@@ -8,12 +8,4 @@ public class UtilsService {
             return true;
         return false;
     }
-
-    public static boolean isErrorServiceOtp(Object object) {
-        String typeData = (object != null) ? object.getClass().getSimpleName() : "";
-        if (typeData.equals("ErrorServiceOtp"))
-            return true;
-        return false;
-    }
-
 }

@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.riotstak.back_xentrix.api.v1.local.api_xentrix.categories.adapters.bd1.Category;
 import com.riotstak.back_xentrix.api.v1.local.api_xentrix.venues.adapters.bd1.Venue;
 
@@ -53,10 +54,12 @@ public class Event {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
+    @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
     private Category category;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "venue_id")
+    @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
     private Venue venue;
 
     @Column(name = "organizer_id")

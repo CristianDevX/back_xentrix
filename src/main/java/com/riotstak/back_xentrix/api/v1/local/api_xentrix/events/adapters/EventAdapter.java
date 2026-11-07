@@ -1,5 +1,6 @@
 package com.riotstak.back_xentrix.api.v1.local.api_xentrix.events.adapters;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.riotstak.back_xentrix.api.v1.local.api_xentrix.events.adapters.bd1.Event;
@@ -11,6 +12,7 @@ public class EventAdapter {
 
     private final String myClassName = EventAdapter.class.getName();
 
+    @Autowired
     EventRepository eventsRepository;
 
     public Object getAll() {
@@ -21,7 +23,7 @@ public class EventAdapter {
         }
     }
 
-    public Object getById(Integer id) {
+    public Object getById(Long id) {
         try {
             return eventsRepository.findById(id);
         } catch (Exception e) {
@@ -37,3 +39,6 @@ public class EventAdapter {
         }
     }
 }
+
+// ajustar el response local para todos los servicios
+// Ajustar registro de log en bd y en archivo local

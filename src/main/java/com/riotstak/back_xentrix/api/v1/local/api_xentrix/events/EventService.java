@@ -2,6 +2,7 @@ package com.riotstak.back_xentrix.api.v1.local.api_xentrix.events;
 
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.riotstak.back_xentrix.api.v1.local.api_xentrix.events.adapters.EventAdapter;
@@ -14,6 +15,7 @@ public class EventService {
 
     private final String myClassName = EventService.class.getName();
 
+    @Autowired
     EventAdapter eventsAdapter;
 
     public Object getAll() {
@@ -24,7 +26,7 @@ public class EventService {
         }
     }
 
-    public Object getById(Integer id) {
+    public Object getById(Long id) {
         try {
             Optional<?> eventResp = (Optional<?>) eventsAdapter.getById(id);
 
